@@ -15,8 +15,9 @@ Public classes:
 
 Create config, build machine, and run a transition:
 
-    // $configArray shape
-    $configArray = [
+    // $config shape
+    // values can be mapped from any source (a different array, a decoded JSON object, some kind of other Entity, etc.)
+    $config = [
         'states' => ['S0', 'S1', 'S2'],
         'finalStates' => ['S2'],
         'alphabet' => [0, 1],
@@ -28,8 +29,8 @@ Create config, build machine, and run a transition:
         'defaultState' => 'S0',
     ];
 
-    $config = new StateMachineConfig($configArray);
-    $factory = new StateMachineFactory($config, $logger); // $logger optional
+    $stateMachineConfig = new StateMachineConfig($config);
+    $factory = new StateMachineFactory($stateMachineConfig, $logger); // $logger optional
     $machine = $factory->build(); // returns StateMachine|null
 
     if ($machine === null) {

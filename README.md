@@ -11,7 +11,7 @@
 
 ![test status](https://github.com/fe-o2/state_machine_exercise/actions/workflows/php.yml/badge.svg)
 
-Install dependencies:
+After checkout, installing the project is simple:
 ```bash
 composer install
 ```
@@ -26,6 +26,12 @@ If you want to see test results in a more detailed format, run:
 ./vendor/bin/phpunit --testdox
 ```
 
+Adding to other applications (using composer):
+```bash
+composer config repositories.cjohnson vcs https://github.com/fe-o2/state_machine_exercise
+composer require cjohnson/state_machine:dev-main
+```
+
 # State Machine Advanced Exercise
 The requirement of the advanced exercise is to create a module that 
 can be consumed by other developers, so that a state machine can be
@@ -36,14 +42,19 @@ that can be instantiated with an initial state and a set of transition rules.
 The class provides methods to get the current state and to transition to a 
 new state based on the defined rules.
 
-Using the factory method is recommended to ensure that the StateMachine is created 
-with the correct configuration and logging capabilities. There is also some basic
-configuration validation that is provided to ensure basic correctness,
-and prevent potential runtime errors.
+In a few steps, we can build a state machine that calculates modulo three:
+
+1. Define the configuration, and use it to create the configuration object.
+2. Create the factory and build the state machine, using the configuration object.
+3. Use the built state machine to transition between states as required and calculate modulo three.
 
 **Important Note**: 
 Circular dependencies, duplicate or unreachable states, and impossible transitions 
-**are not currently being validated**, but could be added in the future.
+**are not currently being validated**, but those features could be added in the future.
+There is basic configuration validation provided when creating the StateMachine via the factory,
+so that method is recommended because it reduces some risk that the StateMachine interrupts 
+an application with runtime errors. Using a PSR-3 compliant logger is also recommended so that we can
+capture any warnings or errors without interrupting the application flow.
 
 When the state machine is built, it can be used as follows:
 ```php
@@ -63,7 +74,7 @@ if ($builtMachine) {
         $newState = $builtMachine->transitionTo($input); 
         echo "Transitioned to state: " . $newState . PHP_EOL;
     }
-    echo "Final state (modulo three calculation): " . $builtMachine->getCurrentState() . PHP_EOL;
+    echo "Final state: " . $builtMachine->getCurrentState() . PHP_EOL;
 } else {
     echo "Failed to build machine using MachineBuilder." . PHP_EOL;
 }
@@ -93,7 +104,7 @@ or adding functions for convenience (e.g. moveToNextState, moveToPreviousState, 
 to check for things like circular dependencies, duplicate or unreachable states, impossible transitions, 
 input alphabet containing missing symbols, mismatched types (and so on) without having to change the StateMachine class itself. 
 - Given more time:
-1. I would consider injecting a more robust validator interface into the factory to allow for more flexibility in validation strategies.
+1. I would consider injecting a robust validator interface into the factory to allow for more flexibility in validation strategies.
 2. Storing different state machine configurations (as json objects) in a database or other storage mechanism for dynamic loading at runtime.
 
 ### Code is organized appropriately both within each file and as a project itself and conforms to accepted standards/norms for the language
@@ -164,12 +175,6 @@ Unit tests are provided to verify the correctness of the state transitions.
 A quick POC is also found in the `demo.php` file.
 
 # Extra Information
-
-Installation in other applications (using composer):
-```bash
-composer config repositories.cjohnson vcs https://github.com/fe-o2/state_machine_exercise
-composer require cjohnson/state_machine:dev-main
-```
 
 A sample code coverage report from PHPUnit is shown below:
 ![coverage.png](assets/coverage.png)
