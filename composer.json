@@ -1,0 +1,31 @@
+{
+    "name": "cjohnson/state_machine",
+    "description": "a PHP state machine library",
+    "require-dev": {
+        "phpunit/phpunit": "^12.4",
+        "mockery/mockery": "^1.4",
+        "php-mock/php-mock": "^2.3",
+        "phpstan/phpstan": "^2.1",
+        "squizlabs/php_codesniffer": "^4.0"
+    },
+    "authors": [
+        {
+            "name": "Cory Johnson",
+            "email": "johnsonoriginals@gmail.com"
+        }
+    ],
+    "license": "proprietary",
+    "require": {
+        "psr/log": "^3.0",
+        "monolog/monolog": "^3.9"
+    },
+    "autoload": {
+        "psr-0": { "cjohnson\\": "src/" },
+        "psr-4": { "cjohnson\\": "src/", "Tests\\": "tests/" }
+    },
+  "scripts": {
+      "test": [
+        "./vendor/bin/phpunit --testdox"
+      ]
+    }
+}

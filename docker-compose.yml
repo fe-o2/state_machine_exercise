@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: state_machine:8.3
+    container_name: state_machine_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html:./src
+      - ./vendor:/var/www/html/vendor:./src/vendor
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: "1"
+      XDEBUG_MODE: "develop,debug"
+      DEBUG_CONFIG: "client_host=host.docker.internal"
+    tty: true
+    stdin_open: true
+    # Override the Dockerfile default to run the built-in server for web access.
+    # Change "-t public" to "." if your project does not have a public directory.
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "."]
+    healthcheck:
+      test: ["CMD", "php", "-v"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
