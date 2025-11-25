@@ -9,7 +9,7 @@
 - Scanned with phpcs using PSR-12 standard.
 - Tested with PHPUnit.
 
-![test status](https://github.com/fe-o2/state_machine_exercise/actions/workflows/php.yml/badge.svg)
+![test status](https://github.com/johnsonoriginals/state_machine_exercise/actions/workflows/php.yml/badge.svg)
 
 After checkout, installing the project is simple:
 ```bash
@@ -28,7 +28,7 @@ If you want to see test results in a more detailed format, run:
 
 Adding to other applications (using composer):
 ```bash
-composer config repositories.cjohnson vcs https://github.com/fe-o2/state_machine_exercise
+composer config repositories.cjohnson vcs https://github.com/johnsonoriginals/state_machine_exercise
 composer require cjohnson/state_machine:dev-main
 ```
 
