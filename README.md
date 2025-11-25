@@ -42,7 +42,7 @@ that can be instantiated with an initial state and a set of transition rules.
 The class provides methods to get the current state and to transition to a 
 new state based on the defined rules.
 
-In a few steps, we can build a state machine that calculates modulo three:
+In a few steps, we can build a rudimentary state machine that calculates modulo three:
 
 1. Define the configuration, and use it to create the configuration object.
 2. Create the factory and build the state machine, using the configuration object.
@@ -51,6 +51,12 @@ In a few steps, we can build a state machine that calculates modulo three:
 **Important Note**: 
 Circular dependencies, duplicate or unreachable states, and impossible transitions 
 **are not currently being validated**, but those features could be added in the future.
+There are also unknowns about how the state machine would behave if given a configuration 
+with an extremely complicated configuration (e.g. hundreds of states, input alphabet characters, and transitions). 
+The intended use case is for relatively simple state machines with a small number of states
+and transitions (e.g. less than 10 states, less than 10 input symbols, and less than 20 
+transitions) - enough to satisfy the exercise of calculating modulo three.
+
 There is basic configuration validation provided when creating the StateMachine via the factory,
 so that method is recommended because it reduces some risk that the StateMachine interrupts 
 an application with runtime errors. Using a PSR-3 compliant logger is also recommended so that we can
@@ -79,7 +85,8 @@ if ($builtMachine) {
     echo "Failed to build machine using MachineBuilder." . PHP_EOL;
 }
 ```
-More examples can be found in the `./src/exercises/ModuloExample.php` file.
+
+The example modulo calculations for standard and advanced exercises can be found in the `./src/exercises/ModuloExample.php` file.
 
 Detailed documentation of the public API is provided in the [API.md](API.md) file.
 
@@ -106,13 +113,14 @@ input alphabet containing missing symbols, mismatched types (and so on) without 
 - Given more time:
 1. I would consider injecting a robust validator interface into the factory to allow for more flexibility in validation strategies.
 2. Storing different state machine configurations (as json objects) in a database or other storage mechanism for dynamic loading at runtime.
+3. Add and complete even more tests to cover larger configurations.
 
 ### Code is organized appropriately both within each file and as a project itself and conforms to accepted standards/norms for the language
 - As a generally accepted standard in PHP, I've organized the code using namespaces and implemented PSR-4 autoloading. 
 - Within each class file, I've followed (and verified) PSR-12 coding standards to ensure consistency and readability.
 - For readability, I've used meaningful class and method names. But, naming things is hard, so if you have suggestions for better names, I'm open to them!
 - Each class has a single responsibility, adhering to the Single Responsibility Principle (SRP).    
-- Each class has a common, consistent structure: properties, constructor, public methods, protected methods.
+- Each class has a common, consistent structure: constants, properties, constructor, public methods, protected methods.
 
 ### Code runs/compiles and is absent of any bugs/errors related to logic or otherwise.
 - Proven by passing all unit tests and integration tests.
