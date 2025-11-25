@@ -41,28 +41,31 @@ class SimpleConfigValidator
         $transitions = $config->getTransitions();
         $defaultState = $config->getDefaultState();
 
+        $result = true;
+
         if (!$this->validateStates($states)) {
-            return false;
+            $result = false;
         }
 
         if (!$this->validateFinalStates($finalStates, $states)) {
-            return false;
+            $result = false;
         }
 
         if (!$this->validateAlphabet($alphabet)) {
-            return false;
+            $result = false;
         }
 
         if (!$this->validateTransitions($transitions)) {
-            return false;
+            $result = false;
         }
 
         if (!$this->validateDefaultState($defaultState, $states)) {
-            return false;
+            $result = false;
         }
 
-        return true;
+        return $result;
     }
+
     /**
      * Validate the states array.
      *
