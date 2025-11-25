@@ -1,9 +1,9 @@
 <?php
-namespace cjohnson\builder;
+namespace cjohnson\factory;
 
 use cjohnson\contracts\MachineConfigurationContract;
-use cjohnson\builder\StateMachine;
-use cjohnson\builder\StateMachineConfig;
+use cjohnson\factory\StateMachine;
+use cjohnson\factory\StateMachineConfig;
 use cjohnson\validators\SimpleConfigValidator;
 use Psr\Log\LoggerInterface;
 

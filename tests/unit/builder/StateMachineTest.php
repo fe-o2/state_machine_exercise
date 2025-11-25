@@ -1,7 +1,7 @@
 <?php
 namespace unit\builder;
 
-use cjohnson\builder\StateMachine;
+use cjohnson\factory\StateMachine;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -9,7 +9,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 /**
  * Class StateMachineTest
  */
-#[CoversClass(\cjohnson\builder\StateMachine::class)]
+#[CoversClass(\cjohnson\factory\StateMachine::class)]
 final class StateMachineTest extends TestCase
 {
 

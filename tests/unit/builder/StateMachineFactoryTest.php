@@ -5,9 +5,9 @@ namespace Tests\unit\builder;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use cjohnson\builder\StateMachineFactory;
-use cjohnson\builder\StateMachineConfig;
-use cjohnson\builder\StateMachine;
+use cjohnson\factory\StateMachineFactory;
+use cjohnson\factory\StateMachineConfig;
+use cjohnson\factory\StateMachine;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -15,7 +15,7 @@ use Psr\Log\LoggerInterface;
  *   Unit tests for the StateMachineFactory class.
  *
  */
-#[CoversClass(\cjohnson\builder\StateMachineFactory::class)]
+#[CoversClass(\cjohnson\factory\StateMachineFactory::class)]
 final class StateMachineFactoryTest extends TestCase
 {
     /**

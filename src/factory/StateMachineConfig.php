@@ -1,5 +1,5 @@
 <?php
-namespace cjohnson\builder;
+namespace cjohnson\factory;
 
 use cjohnson\contracts\MachineConfigurationContract;
 

@@ -3,9 +3,9 @@
 namespace cjohnson\exercises;
 
 use cjohnson\enumerations\StateMachineEnum;
-use cjohnson\builder\StateMachine;
-use cjohnson\builder\StateMachineFactory;
-use cjohnson\builder\StateMachineConfig;
+use cjohnson\factory\StateMachine;
+use cjohnson\factory\StateMachineFactory;
+use cjohnson\factory\StateMachineConfig;
 use Psr\Log\LoggerInterface;
 
 /**

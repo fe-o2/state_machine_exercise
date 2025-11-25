@@ -3,14 +3,14 @@ namespace Tests\unit\builder;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use cjohnson\builder\StateMachineConfig;
+use cjohnson\factory\StateMachineConfig;
 
 /**
  * Class StateMachineConfigTest
  *   Unit tests for the StateMachineConfig class.
  *
  */
-#[CoversClass(\cjohnson\builder\StateMachineConfig::class)]
+#[CoversClass(\cjohnson\factory\StateMachineConfig::class)]
 final class StateMachineConfigTest extends TestCase
 {
     /**

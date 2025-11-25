@@ -1,7 +1,7 @@
 <?php
 namespace cjohnson\validators;
 
-use cjohnson\builder\StateMachineConfig;
+use cjohnson\factory\StateMachineConfig;
 
 /**
  * Class SimpleMachineConfigValidation

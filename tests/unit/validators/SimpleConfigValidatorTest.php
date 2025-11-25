@@ -5,7 +5,7 @@ namespace Tests\unit\Validators;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use cjohnson\validators\SimpleConfigValidator;
-use cjohnson\builder\StateMachineConfig;
+use cjohnson\factory\StateMachineConfig;
 
 /**
  * Class SimpleConfigValidatorTest

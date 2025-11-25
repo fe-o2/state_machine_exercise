@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use cjohnson\builder\StateMachine;
-use cjohnson\builder\StateMachineFactory;
-use cjohnson\builder\StateMachineConfig;
+use cjohnson\factory\StateMachine;
+use cjohnson\factory\StateMachineFactory;
+use cjohnson\factory\StateMachineConfig;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
