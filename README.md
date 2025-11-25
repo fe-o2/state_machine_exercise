@@ -180,7 +180,7 @@ The transition rules are as follows:
 - This implementation uses nested match expressions to handle the state transitions
 
 Unit tests are provided to verify the correctness of the state transitions.
-A quick POC is also found in the `demo.php` file.
+A quick POC is also found in the `examples.php` file.
 
 # Extra Information
 
