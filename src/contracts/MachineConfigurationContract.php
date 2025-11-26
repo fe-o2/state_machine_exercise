@@ -7,7 +7,6 @@ namespace cjohnson\contracts;
  */
 interface MachineConfigurationContract
 {
-
     /**
      * Accessor for the states property.
      *

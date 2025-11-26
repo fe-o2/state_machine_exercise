@@ -1,4 +1,5 @@
 <?php
+
 namespace cjohnson\validators;
 
 use cjohnson\factory\StateMachineConfig;
@@ -13,17 +14,17 @@ class SimpleConfigValidator
     /**
      * Define minimum number of states required.
      */
-    const MINIMUM_STATES = 1;
+    protected const MINIMUM_STATES = 1;
 
     /**
      * Define minimum number of elements in the input alphabet.
      */
-    const MINIMUM_ALPHABET_SIZE = 2;
+    protected const MINIMUM_ALPHABET_SIZE = 2;
 
     /**
      * Define minimum number of transitions required.
      */
-    const MINIMUM_TRANSITIONS = 1;
+    protected const MINIMUM_TRANSITIONS = 1;
 
     /**
      * Validate the machine configuration.

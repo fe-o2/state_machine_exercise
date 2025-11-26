@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\unit\builder;
 
 use PHPUnit\Framework\Attributes\CoversClass;

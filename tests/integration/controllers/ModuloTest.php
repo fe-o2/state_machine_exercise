@@ -1,11 +1,12 @@
 <?php
+
 namespace integration\controllers;
 
 use cjohnson\exercises\ModuloExample;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
-use \ValueError;
+use ValueError;
 
 /**
  * Class ModuloTest

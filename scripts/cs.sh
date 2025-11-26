@@ -26,7 +26,7 @@ function __run() #(step, name, cmd)
 modified="git diff --diff-filter=M --name-only --cached  | grep \".php$\""
 phpfiles="git ls-tree --full-tree --name-only -r HEAD | grep \".php$\""
 ignore="resources/lang,resources/views,bootstrap/helpers,database/migrations,bin" # paths to ignore for phpcs
-phpcs="vendor/bin/phpcs --report=code --colors --report-width=80 --standard=PSR2 --ignore=${ignore}"
+phpcs="vendor/bin/phpcs --report=code --colors --report-width=80 --standard=PSR12 --ignore=${ignore}"
 
 __run "1/3" "php lint" "${phpfiles} | xargs -r php -l"
 __run "2/3" "code sniffer" "${phpfiles} | xargs -r ${phpcs}"

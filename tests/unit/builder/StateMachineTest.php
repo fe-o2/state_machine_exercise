@@ -1,4 +1,5 @@
 <?php
+
 namespace unit\builder;
 
 use cjohnson\factory\StateMachine;
@@ -12,7 +13,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 #[CoversClass(\cjohnson\factory\StateMachine::class)]
 final class StateMachineTest extends TestCase
 {
-
     /**
      * Test that the StateMachine constructor creates an instance successfully.
      *
