@@ -206,3 +206,6 @@ I also had a look at the call stack and memory usage of the xdebug profiler for 
 
 I took the time to integrate this module into a Laravel instance to ensure compatibility. 
 You can find a summary of the result in the [EXAMPLE.md](EXAMPLE.md) document.
+
+Exercise errata: [FSM - Modulo Three Exercise.pdf](assets/FSM%20-%20Modulo%20Three%20Exercise.pdf)
+Rubric: [FSM - Modulo Three Exercise Rubric.pdf](assets/FSM%20-%20Modulo%20Three%20Exercise%20Rubric.pdf)
