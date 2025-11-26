@@ -14,7 +14,7 @@
             "email": "johnsonoriginals@gmail.com"
         }
     ],
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "psr/log": "^3.0",
         "monolog/monolog": "^3.9"
