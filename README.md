@@ -1,8 +1,6 @@
 # Modulo 3 Exercises - State Machine Exercise
 
-
 ![state_machine.gif](assets/state_machine.gif)
-
 
 - Built on PHP 8.3 using Docker and PHPStorm.
 - Scanned with PHPStan level 6.
