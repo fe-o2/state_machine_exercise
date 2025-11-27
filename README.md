@@ -204,3 +204,5 @@ You can find a summary of the result in the [EXAMPLE.md](EXAMPLE.md) document.
 
 Exercise errata: [FSM - Modulo Three Exercise.pdf](assets/FSM%20-%20Modulo%20Three%20Exercise.pdf)
 Rubric: [FSM - Modulo Three Exercise Rubric.pdf](assets/FSM%20-%20Modulo%20Three%20Exercise%20Rubric.pdf)
+
+[MIT.md](MIT.md)
