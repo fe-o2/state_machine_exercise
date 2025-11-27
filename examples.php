@@ -30,12 +30,12 @@ foreach ($inputs as $input) {
     $newState = $machine->transitionTo($input);
     echo "Input: $input, New State: $newState" . PHP_EOL;
 }
-
+echo "Final State: " . $machine->getCurrentState() . PHP_EOL;
 $config = [
     'states' => $states,
     'finalStates' => $finalStates,
     'alphabet' => $alphabet,
-    'transitions' => $stateTransitions,
+    'stateTransitions' => $stateTransitions,
     'defaultState' => $defaultState,
 ];
 $logger = new Logger('name');
@@ -46,11 +46,12 @@ $builtMachine = (new StateMachineFactory($machineConfig, $logger))->build();
 if ($builtMachine) {
     echo "StateMachine created by StateMachineFactory." . PHP_EOL;
     echo "Initial State: " . $builtMachine->getCurrentState() . PHP_EOL;
-    $inputs = [1, 0, 0, 1];
+    $inputs = [1, 0, 1, 0];
     foreach ($inputs as $input) {
         $newState = $builtMachine->transitionTo($input);
         echo "Input: $input, New State: $newState" . PHP_EOL;
     }
+    echo "Final State: " . $builtMachine->getCurrentState() . PHP_EOL;
 } else {
     echo "Failed to build machine using MachineBuilder." . PHP_EOL;
 }

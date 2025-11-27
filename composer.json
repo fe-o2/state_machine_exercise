@@ -15,6 +15,7 @@
         }
     ],
     "license": "MIT",
+    "type": "library",
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true
@@ -31,8 +32,14 @@
         "psr-4": { "Tests\\": "tests/" }
     },
     "scripts": {
-        "test": [
-          "./vendor/bin/phpunit"
+        "test" : "./vendor/bin/phpunit --colors=always",
+        "cs-check": "./vendor/bin/phpcs --standard=PSR12 src/ tests",
+        "cs-fix": "./vendor/bin/phpcbf --standard=PSR12 src tests",
+        "stan": "./vendor/bin/phpstan analyse -c phpstan.neon src tests",
+        "analyse": [
+            "@cs-check",
+            "@stan"
         ]
+
     }
 }

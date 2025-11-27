@@ -37,3 +37,7 @@ jobs:
 
     - name: Run test suite
       run: composer run-script test
+    - name: Run phpcs check for PSR-12 validation
+      run: composer run-script cs-check
+    - name: Run stan analysis
+      run: composer run-script stan

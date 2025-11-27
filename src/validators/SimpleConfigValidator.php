@@ -2,7 +2,7 @@
 
 namespace cjohnson\validators;
 
-use cjohnson\factory\StateMachineConfig;
+use cjohnson\contracts\MachineConfigurationContract;
 
 /**
  * Class SimpleMachineConfigValidation
@@ -29,12 +29,12 @@ class SimpleConfigValidator
     /**
      * Validate the machine configuration.
      *
-     * @param StateMachineConfig $config
+     * @param MachineConfigurationContract  $config
      *   the state machine configuration to validate.
      * @return bool
      *   true if the configuration is valid, false otherwise.
      */
-    public function validate(StateMachineConfig $config): bool
+    public function validate(MachineConfigurationContract $config): bool
     {
         $states = $config->getStates();
         $finalStates = $config->getFinalStates();
@@ -67,7 +67,7 @@ class SimpleConfigValidator
     /**
      * Validate the states array.
      *
-     * @param array $states
+     * @param array<string> $states
      *   the array of states to validate.
      * @return bool
      *   true if the states array is valid, false otherwise.
@@ -85,9 +85,9 @@ class SimpleConfigValidator
     /**
      * Validate the final states array.
      *
-     * @param array $finalStates
+     * @param array<string> $finalStates
      *   the array of final states to validate.
-     * @param array $states
+     * @param array<string> $states
      *   the array of all implemented states.
      * @return bool
      *   true if the final states array is valid, false otherwise.
@@ -109,7 +109,7 @@ class SimpleConfigValidator
     /**
      * Validate the alphabet array.
      *
-     * @param array $alphabet
+     * @param array<int> $alphabet
      *   the array of input alphabet symbols to validate.
      * @return bool
      *   true if the input alphabet array is valid, false otherwise.
@@ -126,7 +126,7 @@ class SimpleConfigValidator
     /**
      * Validate the transitions string.
      *
-     * @param array $transitions
+     * @param array<array<string|int>> $transitions
      *   the array of transitions to validate.
      * @return bool
      *   true if the transitions array is valid, false otherwise.
@@ -141,7 +141,7 @@ class SimpleConfigValidator
                 return false;
             }
         }
-        return !empty($transitions);
+        return true;
     }
 
     /**
@@ -149,7 +149,7 @@ class SimpleConfigValidator
      *
      * @param string $defaultState
      *   the default state to validate.
-     * @param array $states
+     * @param array<string> $states
      *   the array of all implemented states.
      * @return bool
      *   true if the default state is valid, false otherwise.

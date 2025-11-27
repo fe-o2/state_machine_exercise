@@ -62,6 +62,7 @@ final class StateMachineTest extends TestCase
 
         // Act & Assert.
         $this->expectException(\TypeError::class);
+        /** @phpstan-ignore argument.type */
         $machineUnderTest = new StateMachine($testParams);
     }
 
@@ -71,10 +72,10 @@ final class StateMachineTest extends TestCase
      * @param string $initialState
      * @param int $inputSymbol
      * @param string $expected
-     * @param array $states
-     * @param array $finalStates
-     * @param array $alphabet
-     * @param array $stateTransitions
+     * @param array<string> $states
+     * @param array<string> $finalStates
+     * @param array<int> $alphabet
+     * @param array<int, list<int|string>> $stateTransitions
      * @param string $defaultState
      * @return void
      */
@@ -134,7 +135,7 @@ final class StateMachineTest extends TestCase
 
         // Assert.
         // invalid symbol should return the current state (initially "S0")
-        $this->assertSame('S0', $machineUnderTest->transitionTo("2"));
+        $this->assertSame('S0', $machineUnderTest->transitionTo(2));
     }
 
     /**
@@ -173,13 +174,13 @@ final class StateMachineTest extends TestCase
 
         // Assert.
         // invalid symbol should return the current state ("S1" after setting it)
-        $this->assertSame('S1', $machineUnderTest->transitionTo("2"));
+        $this->assertSame('S1', $machineUnderTest->transitionTo(2));
     }
 
     /**
      * Data provider for state transition scenarios.
      *
-     * @return array[]
+     * @return array<string, array<int|string, mixed>>
      */
     public static function stateTransitionScenarioProvider(): array
     {

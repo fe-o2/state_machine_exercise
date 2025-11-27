@@ -2,6 +2,8 @@
 
 namespace cjohnson\contracts;
 
+use staabm\SideEffectsDetector\SideEffect;
+
 /**
  * Interface MachineConfigurationContract
  */
@@ -10,7 +12,7 @@ interface MachineConfigurationContract
     /**
      * Accessor for the states property.
      *
-     * @return array
+     * @return array<string>
      *   The configured states of the state machine.
      */
     public function getStates(): array;
@@ -18,7 +20,7 @@ interface MachineConfigurationContract
     /**
      * Accessor for the finalStates property.
      *
-     * @return array
+     * @return array<string>
      *   The configured final states of the state machine.
      */
     public function getFinalStates(): array;
@@ -26,7 +28,7 @@ interface MachineConfigurationContract
     /**
      * Accessor for the stateTransitions property.
      *
-     * @return array
+     * @return array<int, list<int|string>>
      *   The configured state transitions of the state machine.
      */
     public function getTransitions(): array;
@@ -34,7 +36,7 @@ interface MachineConfigurationContract
     /**
      * Accessor for the input alphabet property.
      *
-     * @return array
+     * @return array<int>
      *   The configured input alphabet of the state machine.
      */
     public function getAlphabet(): array;

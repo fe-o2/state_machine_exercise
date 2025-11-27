@@ -12,28 +12,28 @@ class StateMachine
     /**
      * Class property for the possible states of the machine.
      *
-     * @var array
+     * @var array<string>
      */
     protected array $states = [];
 
     /**
      * Class property for the possible final states of the machine.
      *
-     * @var array
+     * @var array<string>
      */
     protected array $finalStates = [];
 
     /**
      * Class property for the input alphabet that may be used in state transitions.
      *
-     * @var array
+     * @var array<int>
      */
     protected array $alphabet = [];
 
     /**
      * Class property for the state transitions of the machine.
      *
-     * @var array
+     * @var array<array<string|int>>
      */
     protected array $stateTransitions = [];
 
@@ -41,6 +41,7 @@ class StateMachine
      * Class property for the default state of the machine.
      *
      * @var string
+     *
      */
     protected string $defaultState = "";
 
@@ -54,13 +55,13 @@ class StateMachine
     /**
      * Default constructor.
      *
-     * @param array $states
+     * @param array<string> $states
      *   array of possible states, for example: ['pending', 'approved', 'rejected']
-     * @param array $finalStates
+     * @param array<string> $finalStates
      *   array of final states, for example: ['approved', 'rejected']
-     * @param array $alphabet
+     * @param array<int> $alphabet
      *  array of valid alphabet inputs, for example: [0, 1]
-     * @param array $stateTransitions
+     * @param array<int, list<int|string>> $stateTransitions
      *  array of state transitions, for example: [['pending', 1, 'approved'], ['pending', 0, 'rejected']]
      * @param string $defaultState
      *   the default state of the machine, for example: 'pending'
@@ -77,8 +78,6 @@ class StateMachine
         $this->alphabet = $alphabet;
         $this->stateTransitions = $stateTransitions;
         $this->defaultState = $defaultState;
-
-        return $this;
     }
 
     /**

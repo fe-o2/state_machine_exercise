@@ -14,27 +14,27 @@ class StateMachineConfig implements MachineConfigurationContract
     /**
      * Class property for the desired states of the state machine.
      *
-     * @var array
+     * @var array<string>
      */
     protected array $states = [];
 
     /**
      * Class property for the desired final states of the state machine.
-     * @var array
+     * @var array<string>
      */
     protected array $finalStates = [];
 
     /**
      * Class property for the desired input alphabet of the transitions within the state machine.
      *
-     * @var array
+     * @var array<int>
      */
     protected array $alphabet = [];
 
     /**
      * Class property for the desired state transitions of the state machine.
      *
-     * @var array
+     * @var array<mixed>
      */
     protected array $stateTransitions = [];
 
@@ -56,7 +56,7 @@ class StateMachineConfig implements MachineConfigurationContract
     /**
      * Constructor
      *
-     * @param array $config
+     * @param array<string, array<int|list<int|string>|string>|string> $config
      *   The configuration for the state machine.
      */
     public function __construct(array $config)
@@ -64,14 +64,14 @@ class StateMachineConfig implements MachineConfigurationContract
         $this->states = $config['states'] ?? [];
         $this->finalStates = $config['finalStates'] ?? [];
         $this->alphabet = $config['alphabet'] ?? [];
-        $this->stateTransitions = $config['transitions'] ?? [];
+        $this->stateTransitions = $config['stateTransitions'] ?? [];
         $this->defaultState = $config['defaultState'] ?? "";
     }
 
     /**
      * Accessor for the states property.
      *
-     * @return array
+     * @return array<string>
      *   The configured states of the state machine.
      */
     public function getStates(): array
@@ -82,7 +82,7 @@ class StateMachineConfig implements MachineConfigurationContract
     /**
      * Accessor for the finalStates property.
      *
-     * @return array
+     * @return array<mixed>
      *   The configured final states of the state machine.
      */
     public function getFinalStates(): array
@@ -93,7 +93,7 @@ class StateMachineConfig implements MachineConfigurationContract
     /**
      * Accessor for the stateTransitions property.
      *
-     * @return array
+     * @return array<mixed>
      *   The configured state transitions of the state machine.
      */
     public function getTransitions(): array
@@ -104,7 +104,7 @@ class StateMachineConfig implements MachineConfigurationContract
     /**
      * Accessor for the input alphabet property.
      *
-     * @return array
+     * @return array<int>
      *   The configured input alphabet of the state machine.
      */
     public function getAlphabet(): array

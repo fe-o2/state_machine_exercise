@@ -91,7 +91,7 @@ class ModuloExample
             'states' => ['S0', 'S1', 'S2'],
             'finalStates' => ['S0', 'S1', 'S2'],
             'alphabet' => [0, 1],
-            'transitions' => [
+            'stateTransitions' => [
                 ["S0", 0, "S0"],
                 ["S0", 1, "S1"],
                 ["S1", 0, "S2"],
@@ -104,7 +104,6 @@ class ModuloExample
 
         $machineConfig = new StateMachineConfig($config);
         $builtMachine = (new StateMachineFactory($machineConfig, $logger))->build();
-
         $characters = str_split($number);
         foreach ($characters as $character) {
             $builtMachine->transitionTo((int)$character);

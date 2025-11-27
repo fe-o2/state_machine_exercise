@@ -9,7 +9,6 @@ use cjohnson\factory\StateMachineConfig;
 /**
  * Class StateMachineConfigTest
  *   Unit tests for the StateMachineConfig class.
- *
  */
 #[CoversClass(\cjohnson\factory\StateMachineConfig::class)]
 final class StateMachineConfigTest extends TestCase
@@ -23,14 +22,18 @@ final class StateMachineConfigTest extends TestCase
     {
         // Arrange.
         $config = [
-            'states' => ['idle', 'running', 'stopped'],
-            'finalStates' => ['stopped'],
-            'alphabet' => ['start', 'stop'],
-            'transitions' => [
-                'idle' => ['start' => 'running'],
-                'running' => ['stop' => 'stopped'],
+            'states' => ['S0', 'S1', 'S2'],
+            'finalStates' => ['S0', 'S1', 'S2'],
+            'alphabet' => [0, 1],
+            'stateTransitions' => [
+                ["S0", 0, "S0"],
+                ["S0", 1, "S1"],
+                ["S1", 0, "S2"],
+                ["S1", 1, "S0"],
+                ["S2", 0, "S1"],
+                ["S2", 1, "S2"],
             ],
-            'defaultState' => 'idle',
+            'defaultState' => "S0",
         ];
 
         // Act.
@@ -41,8 +44,8 @@ final class StateMachineConfigTest extends TestCase
         $this->assertSame($config['states'], $machineConfigUnderTest->getStates());
         $this->assertSame($config['finalStates'], $machineConfigUnderTest->getFinalStates());
         $this->assertSame($config['alphabet'], $machineConfigUnderTest->getAlphabet());
-        $this->assertSame($config['transitions'], $machineConfigUnderTest->getTransitions());
-        $this->assertSame('idle', $machineConfigUnderTest->getDefaultState());
+        $this->assertSame($config['stateTransitions'], $machineConfigUnderTest->getTransitions());
+        $this->assertSame('S0', $machineConfigUnderTest->getDefaultState());
     }
 
     /**
@@ -74,6 +77,7 @@ final class StateMachineConfigTest extends TestCase
 
         // Act & Assert.
         $this->expectException(\TypeError::class);
+        /** @phpstan-ignore argument.type */
         $machineUnderTest = new StateMachineConfig($testParams);
     }
 }

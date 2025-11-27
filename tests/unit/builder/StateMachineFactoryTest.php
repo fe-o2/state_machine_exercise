@@ -91,6 +91,7 @@ final class StateMachineFactoryTest extends TestCase
 
         // Act & Assert.
         $this->expectException(\TypeError::class);
-        $machineUnderTest = new StateMachineFactory($testParams, $testParams);
+        /** @phpstan-ignore argument.type */
+        $machineUnderTest = new StateMachineFactory($testParams, null);
     }
 }

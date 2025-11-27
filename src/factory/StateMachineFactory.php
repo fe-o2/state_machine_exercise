@@ -3,8 +3,6 @@
 namespace cjohnson\factory;
 
 use cjohnson\contracts\MachineConfigurationContract;
-use cjohnson\factory\StateMachine;
-use cjohnson\factory\StateMachineConfig;
 use cjohnson\validators\SimpleConfigValidator;
 use Psr\Log\LoggerInterface;
 
@@ -18,16 +16,16 @@ class StateMachineFactory
     /**
      * Class property to hold the machine configuration.
      *
-     * @var StateMachineConfig
+     * @var MachineConfigurationContract
      */
-    protected StateMachineConfig $machineConfig;
+    protected MachineConfigurationContract $machineConfig;
 
     /**
      * Class property to hold a logger instance.
      *
      * @var LoggerInterface|null
      */
-    protected LoggerInterface $logger;
+    protected ?LoggerInterface $logger;
 
     /**
      * Default Constructor.
@@ -37,7 +35,7 @@ class StateMachineFactory
      * @param LoggerInterface|null $logger
      *   An optional logger for logging errors.
      */
-    public function __construct(MachineConfigurationContract $config, LoggerInterface $logger = null)
+    public function __construct(MachineConfigurationContract $config, ?LoggerInterface $logger = null)
     {
         $this->machineConfig = $config;
         $this->logger = $logger;
@@ -86,10 +84,10 @@ class StateMachineFactory
     /**
      * Accessor for machine configuration.
      *
-     * @return StateMachineConfig
+     * @return MachineConfigurationContract
      *   The machine configuration.
      */
-    protected function getMachineConfig(): StateMachineConfig
+    protected function getMachineConfig(): MachineConfigurationContract
     {
         return $this->machineConfig;
     }
