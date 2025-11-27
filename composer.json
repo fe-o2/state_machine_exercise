@@ -29,17 +29,13 @@
         "psr-4": { "cjohnson\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" }
+        "psr-4": { "tests\\": "tests/" }
     },
     "scripts": {
-        "test" : "./vendor/bin/phpunit --colors=always",
-        "cs-check": "./vendor/bin/phpcs --standard=PSR12 src/ tests",
-        "cs-fix": "./vendor/bin/phpcbf --standard=PSR12 src tests",
-        "stan": "./vendor/bin/phpstan analyse -c phpstan.neon src tests",
-        "analyse": [
-            "@cs-check",
-            "@stan"
-        ]
-
+        "test" : "vendor/bin/phpunit --colors=always",
+        "cs-check": "vendor/bin/phpcs --standard=PSR12 src/ tests",
+        "cs-fix": "vendor/bin/phpcbf --standard=PSR12 src tests",
+        "stan": "vendor/bin/phpstan analyse -c phpstan.neon src tests",
+        "analyse": "composer cs-check && composer stan"
     }
 }

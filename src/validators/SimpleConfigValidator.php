@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace cjohnson\validators;
 
 use cjohnson\contracts\MachineConfigurationContract;

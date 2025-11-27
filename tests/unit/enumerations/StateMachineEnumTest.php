@@ -1,6 +1,8 @@
 <?php
 
-namespace Tests\unit\enumerations;
+declare(strict_types=1);
+
+namespace tests\unit\enumerations;
 
 use cjohnson\enumerations\StateMachineEnum;
 use PHPUnit\Framework\Attributes\CoversClass;
