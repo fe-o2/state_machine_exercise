@@ -5,7 +5,7 @@
 
 
 - Built on PHP 8.3 using Docker and PHPStorm.
-- Scanned with PHPStan using the default level.
+- Scanned with PHPStan level 6.
 - Scanned with phpcs using PSR-12 standard.
 - Tested with PHPUnit.
 
